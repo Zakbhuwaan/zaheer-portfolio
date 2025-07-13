@@ -1,0 +1,40 @@
+<section id="timeline" class="relative py-20 bg-transparent">
+  <div class="max-w-5xl mx-auto relative z-10">
+    <div class="section-header-wrapper">
+      <h2 class="section-header">Timeline</h2>
+      <div class="section-header-glow"></div>
+    </div>
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="absolute left-1/2 top-0 w-1 timeline-vertical-line h-full transform -translate-x-1/2 z-0"></div>
+      <ng-container *ngFor="let item of timeline; let i = index">
+        <div class="mb-16 flex flex-col md:flex-row items-center relative z-10">
+          <!-- Left side -->
+          <div class="md:w-1/2 md:pr-8 flex justify-end md:order-1 order-2">
+            <div *ngIf="i % 2 === 0" class="timeline-card w-80">
+              <div class="text-primary-400 font-bold text-lg mb-1">{{ item.year }}</div>
+              <div class="text-xl font-semibold mb-1">{{ item.role }}</div>
+              <div class="text-primary-400 font-medium mb-2">{{ item.company }}</div>
+              <div class="text-light-100">{{ item.description }}</div>
+            </div>
+            <div *ngIf="i % 2 !== 0" class="w-80 invisible"></div>
+          </div>
+          <!-- Timeline dot -->
+          <div class="w-8 h-8 flex items-center justify-center md:order-2 order-1 z-20">
+            <span class="timeline-dot"></span>
+          </div>
+          <!-- Right side -->
+          <div class="md:w-1/2 md:pl-8 flex justify-start md:order-3 order-3">
+            <div *ngIf="i % 2 !== 0" class="timeline-card w-80">
+              <div class="text-primary-400 font-bold text-lg mb-1">{{ item.year }}</div>
+              <div class="text-xl font-semibold mb-1">{{ item.role }}</div>
+              <div class="text-primary-400 font-medium mb-2">{{ item.company }}</div>
+              <div class="text-light-100">{{ item.description }}</div>
+            </div>
+            <div *ngIf="i % 2 === 0" class="w-80 invisible"></div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>

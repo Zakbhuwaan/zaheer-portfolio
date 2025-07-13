@@ -1,0 +1,13 @@
+<section *ngIf="project">
+    <h2>{{ project.title }}</h2>
+    <img *ngIf="project.image" [src]="project.image" [alt]="project.title" width="300" />
+    <p>{{ project.description }}</p>
+    <div>Status: {{ project.status }}</div>
+    <div>Category: {{ project.category }}</div>
+    <div>Tech Stack: {{ project.techStack.join(', ') }}</div>
+    <a *ngIf="project.url" [href]="project.url" target="_blank">View on GitHub</a>
+  </section>
+  <section *ngIf="!project">
+    <p>Project not found.</p>
+  </section>
+  

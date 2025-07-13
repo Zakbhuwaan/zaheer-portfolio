@@ -1,65 +1,3 @@
-@import 'animate.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html, body {
-    background: transparent !important;
-}
-
-.animate-gradient-move {
-  background-size: 200% 200%;
-  animation: gradientMove 8s ease-in-out infinite;
-}
-
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes orb1 {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(120px) scale(1.18); }
-}
-@keyframes orb2 {
-  0%, 100% { transform: translateX(0) scale(1); }
-  50% { transform: translateX(-180px) scale(1.15); }
-}
-@keyframes orb3 {
-  0%, 100% { transform: translate(0,0) scale(1); }
-  50% { transform: translate(120px, -120px) scale(1.22); }
-}
-
-.animate-orb1 { animation: orb1 7s ease-in-out infinite alternate; }
-.animate-orb2 { animation: orb2 9s ease-in-out infinite alternate; }
-.animate-orb3 { animation: orb3 11s ease-in-out infinite alternate; }
-
-.section-header {
-  font-size: 4rem;
-  font-weight: 900;
-  color: #fff;
-  text-align: center;
-  letter-spacing: 0.01em;
-  z-index: 2;
-  position: relative;
-}
-.section-header-underline {
-  margin-top: 0.5rem;
-  width: 60%;
-  height: 10px;
-  background: linear-gradient(90deg, rgba(162,89,247,0.35) 0%, rgba(162,89,247,0.7) 50%, rgba(162,89,247,0.35) 100%);
-  border-radius: 8px;
-  filter: blur(2px);
-  opacity: 0.85;
-  box-shadow: 0 2px 16px 0 rgba(162,89,247,0.18);
-}
 
 .section-header-wrapper {
   position: relative;
@@ -103,14 +41,31 @@ html, body {
   opacity: 0.25;
 }
 @media (max-width: 900px) {
-  .section-header {
-    font-size: 2.2rem;
-  }
-  .section-header-underline {
-    width: 80%;
-    height: 7px;
-  }
   .section-header-wrapper {
     margin-bottom: 2rem;
   }
 }
+
+.project-card {
+  background: linear-gradient(135deg, rgba(36, 18, 60, 0.85) 60%, rgba(80, 36, 120, 0.7) 100%);
+  border: 1.5px solid rgba(162, 89, 247, 0.18);
+  box-shadow: 0 8px 40px 0 rgba(162, 89, 247, 0.12);
+  backdrop-filter: blur(12px) saturate(1.2);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.project-card:hover {
+  box-shadow: 0 12px 48px 0 rgba(162, 89, 247, 0.22);
+  border-color: rgba(162, 89, 247, 0.35);
+}
+@media (max-width: 900px) {
+  .project-card {
+    padding: 1.5rem 1rem;
+  }
+}
+

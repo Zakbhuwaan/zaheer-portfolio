@@ -1,0 +1,22 @@
+[
+    {
+      "id": "ai-1",
+      "title": "AI Project 1",
+      "description": "A cool AI project using TensorFlow.",
+      "category": "ai",
+      "status": "Completed",
+      "techStack": ["TensorFlow", "Python"],
+      "image": "assets/images/ai1.png",
+      "url": "https://github.com/zaheerkhan/ai-project-1"
+    },
+    {
+      "id": "fs-1",
+      "title": "Fullstack Project 1",
+      "description": "A scalable web app built with Angular and Node.js.",
+      "category": "fullstack",
+      "status": "In Progress",
+      "techStack": ["Angular", "Node.js"],
+      "image": "assets/images/fs1.png",
+      "url": "https://github.com/zaheerkhan/fullstack-project-1"
+    }
+  ]

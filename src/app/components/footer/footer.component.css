@@ -1,0 +1,24 @@
+footer {
+  background: #0a0c1b;
+}
+
+footer .rounded-lg {
+  transition: background 0.2s, border-color 0.2s;
+}
+
+footer .rounded-lg:hover {
+  background: rgba(162, 89, 247, 0.12);
+  border-color: #a259f7;
+}
+
+footer .text-base {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  footer .flex.items-end.justify-between {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}

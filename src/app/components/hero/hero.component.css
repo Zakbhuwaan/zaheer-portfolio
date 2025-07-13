@@ -1,0 +1,11 @@
+.blinking-cursor {
+  animation: blink 1s steps(2, start) infinite;
+  font-weight: bold;
+  color: #22d3ee; /* Tailwind cyan-400 */
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}

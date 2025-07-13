@@ -1,0 +1,77 @@
+[
+  {
+    "section": "Featured Capabilities",
+    "items": [
+      {
+        "title": "AI-Driven Applications",
+        "description": [
+          "Real-time sentiment analysis for market or user data",
+          "Predictive systems tailored to finance, operations, or behavior",
+          "Computer vision use cases like attendance, detection, or tracking"
+        ],
+        "tools": ["FinBERT", "LSTM", "OpenCV", "Firebase"]
+      },
+      {
+        "title": "Scalable Fullstack Platforms",
+        "description": [
+          "Admin portals, dashboards, and internal tooling",
+          "End-to-end authentication and role-based access"
+        ],
+        "tools": ["Angular", "ASP.NET Core", "SQL Server"]
+      },
+      {
+        "title": "Responsive Business Interfaces",
+        "description": [
+          "Mobile-first designs with optimized SEO performance",
+          "Custom-branded layouts using modern UI frameworks"
+        ],
+        "tools": ["Angular", "Tailwind CSS"]
+      },
+      {
+        "title": "Live & Collaborative Systems",
+        "description": [
+          "Real-time dashboards and data visualizations",
+          "Attendance, chat, or alert systems with low latency"
+        ],
+        "tools": ["SignalR", "Firebase", "REST APIs"]
+      }
+    ]
+  },
+  {
+    "section": "Technical Strengths",
+    "items": [
+      {
+        "name": "Machine Learning & NLP",
+        "examples": [
+          "LSTM networks",
+          "Classification pipelines",
+          "Financial sentiment modeling"
+        ]
+      },
+      {
+        "name": "Computer Vision",
+        "examples": [
+          "OpenCV workflows",
+          "Face/object detection",
+          "Frame-based tracking"
+        ]
+      },
+      {
+        "name": "Web Application Architecture",
+        "examples": [
+          "Angular component systems",
+          ".NET Core modular backends",
+          "Secure API design"
+        ]
+      },
+      {
+        "name": "Data & State Management",
+        "examples": [
+          "Relational data handling",
+          "Real-time sync",
+          "Session/auth control"
+        ]
+      }
+    ]
+  }
+]

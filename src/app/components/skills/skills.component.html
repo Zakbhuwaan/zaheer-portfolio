@@ -1,0 +1,32 @@
+<section id="skills" class="relative py-20 bg-transparent">
+  <div class="max-w-5xl mx-auto relative z-10">
+    <div class="section-header-wrapper">
+      <h2 class="section-header">Skills</h2>
+      <div class="section-header-glow"></div>
+    </div>
+    <div *ngFor="let section of skills" class="mb-12">
+      <h3 class="skills-section-title text-center">{{ section.section }}</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <ng-container *ngFor="let item of section.items">
+          <!-- Detailed item -->
+          <div *ngIf="item.title" class="skills-card">
+            <h4 class="skills-title mb-2">{{ item.title }}</h4>
+            <ul class="skills-list mb-2">
+              <li *ngFor="let desc of item.description">{{ desc }}</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-2">
+              <span *ngFor="let tool of item.tools" class="skills-tag">{{ tool }}</span>
+            </div>
+          </div>
+          <!-- Core capability item -->
+          <div *ngIf="item.name" class="skills-card">
+            <h4 class="skills-title mb-2">{{ item.name }}</h4>
+            <div class="flex flex-wrap gap-2 mt-2">
+              <span *ngFor="let ex of item.examples" class="skills-tag">{{ ex }}</span>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>
