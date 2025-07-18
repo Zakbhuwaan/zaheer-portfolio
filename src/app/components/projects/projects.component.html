@@ -1,38 +1,91 @@
 <section id="projects" class="relative py-20 bg-transparent">
-  <div class="max-w-4xl mx-auto relative z-10">
-    <div class="section-header-wrapper">
-      <h2 class="section-header">Projects</h2>
-      <div class="section-header-glow"></div>
+  <div class="max-w-6xl mx-auto px-4 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Featured Projects
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-500 mx-auto rounded-full"></div>
+      <p class="text-gray-300 mt-6 max-w-2xl mx-auto text-lg">
+        A showcase of my recent work in AI/ML, full-stack development, and innovative solutions
+      </p>
     </div>
-    <div class="grid md:grid-cols-3 gap-10">
-      <div *ngFor="let project of projects" class="project-card">
-        <!-- Top gradient/icon section -->
-        <div class="h-40 flex items-center justify-center bg-gradient-to-br from-primary-400 to-primary-500">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none" />
-            <path d="M8 12h8M12 8v8" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg>
-        </div>
-        <!-- Bottom info section -->
-        <div class="flex-1 flex flex-col">
-          <h3 class="text-lg font-semibold mb-1 text-light-100">{{ project.title }}</h3>
-          <p class="text-sm mb-4 text-light-100">{{ project.description }}</p>
-          <div class="flex flex-wrap gap-2 mb-3">
-            <span *ngFor="let tech of project.techStack" class="bg-primary-400/20 text-primary-400 px-2 py-1 rounded-full text-xs font-medium">{{ tech }}</span>
-            <span *ngIf="project.status === 'Completed'" class="bg-green-600/20 text-green-400 px-2 py-1 rounded-full text-xs font-medium">Completed</span>
-            <span *ngIf="project.status === 'In Progress'" class="bg-yellow-600/20 text-yellow-400 px-2 py-1 rounded-full text-xs font-medium">In Progress</span>
-            <!-- Add more status/date/label badges as needed -->
-          </div>
-          <div class="flex-1"></div>
-          <div class="flex items-center justify-between mt-2">
-            <a [routerLink]="['/projects', project.category, project.id]" class="text-primary-400 hover:underline flex items-center gap-1 text-sm font-semibold">View Details <span>&rarr;</span></a>
+
+    <!-- Projects Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <mat-card *ngFor="let project of projects" 
+        class="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary-400/50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl overflow-hidden"
+      >
+        <!-- Project Image/Icon -->
+        <div class="h-48 bg-gradient-to-br from-primary-400 to-primary-500 flex items-center justify-center relative overflow-hidden">
+          <div class="absolute inset-0 bg-black/20"></div>
+          <lucide-icon [img]="Github" size="48" class="text-white relative z-10"></lucide-icon>
+          
+          <!-- Status Badge -->
+          <div class="absolute top-4 right-4 z-20">
+            <span [class]="'px-3 py-1 rounded-full text-xs font-medium text-white ' + getStatusColor(project.status)">
+              {{ project.status }}
+            </span>
           </div>
         </div>
-      </div>
+
+        <mat-card-content class="p-6">
+          <!-- Project Title & Description -->
+          <h3 class="text-xl font-semibold text-white mb-3">{{ project.title }}</h3>
+          <p class="text-gray-300 mb-4 line-clamp-3">{{ project.description }}</p>
+
+          <!-- Tech Stack -->
+          <div class="flex flex-wrap gap-2 mb-6">
+            <mat-chip *ngFor="let tech of project.techStack" 
+              class="bg-primary-400/20 text-primary-400 border border-primary-400/30 text-xs">
+              {{ tech }}
+            </mat-chip>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions class="p-6 pt-0 flex items-center justify-between">
+          <!-- View Details -->
+          <a 
+            [routerLink]="['/projects', project.category, project.id]"
+            mat-stroked-button
+            class="text-primary-400 border-primary-400 hover:bg-primary-400/10"
+          >
+            <lucide-icon [img]="Eye" size="16" class="mr-2"></lucide-icon>
+            Details
+          </a>
+
+          <!-- External Links -->
+          <div class="flex items-center space-x-2">
+            <a 
+              [href]="project.url" 
+              target="_blank"
+              mat-icon-button
+              class="text-gray-300 hover:text-primary-400"
+              matTooltip="View on GitHub"
+            >
+              <lucide-icon [img]="Github" size="20"></lucide-icon>
+            </a>
+            <button 
+              mat-icon-button
+              class="text-gray-300 hover:text-primary-400"
+              matTooltip="Star Project"
+            >
+              <lucide-icon [img]="Star" size="20"></lucide-icon>
+            </button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
     </div>
-    <div class="flex justify-center mt-10">
-      <a routerLink="/more-projects" class="px-8 py-3 rounded-lg border border-primary-400 text-lg font-semibold bg-transparent hover:bg-primary-400 hover:text-midnight-900 transition text-white shadow focus:outline-none">
-        More Projects
+
+    <!-- View More Projects Button -->
+    <div class="flex justify-center mt-12">
+      <a 
+        routerLink="/more-projects"
+        mat-raised-button
+        class="bg-gradient-to-r from-primary-400 to-primary-500 text-white font-semibold px-8 py-3 hover:shadow-lg transition-all duration-200"
+      >
+        <lucide-icon [img]="ExternalLink" size="18" class="mr-2"></lucide-icon>
+        View All Projects
       </a>
     </div>
   </div>

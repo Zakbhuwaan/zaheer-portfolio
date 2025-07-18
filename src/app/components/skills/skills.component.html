@@ -1,30 +1,76 @@
 <section id="skills" class="relative py-20 bg-transparent">
-  <div class="max-w-5xl mx-auto relative z-10">
-    <div class="section-header-wrapper">
-      <h2 class="section-header">Skills</h2>
-      <div class="section-header-glow"></div>
+  <div class="max-w-6xl mx-auto px-4 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Skills & Expertise
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-500 mx-auto rounded-full"></div>
+      <p class="text-gray-300 mt-6 max-w-2xl mx-auto text-lg">
+        A comprehensive overview of my technical capabilities and professional expertise
+      </p>
     </div>
-    <div *ngFor="let section of skills" class="mb-12">
-      <h3 class="skills-section-title text-center">{{ section.section }}</h3>
-      <div class="grid md:grid-cols-2 gap-8">
-        <ng-container *ngFor="let item of section.items">
-          <!-- Detailed item -->
-          <div *ngIf="item.title" class="skills-card">
-            <h4 class="skills-title mb-2">{{ item.title }}</h4>
-            <ul class="skills-list mb-2">
-              <li *ngFor="let desc of item.description">{{ desc }}</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-2">
-              <span *ngFor="let tool of item.tools" class="skills-tag">{{ tool }}</span>
-            </div>
-          </div>
-          <!-- Core capability item -->
-          <div *ngIf="item.name" class="skills-card">
-            <h4 class="skills-title mb-2">{{ item.name }}</h4>
-            <div class="flex flex-wrap gap-2 mt-2">
-              <span *ngFor="let ex of item.examples" class="skills-tag">{{ ex }}</span>
-            </div>
-          </div>
+
+    <!-- Skills Sections -->
+    <div *ngFor="let section of skills; let sectionIndex = index" class="mb-16">
+      <h3 class="text-2xl md:text-3xl font-semibold text-primary-400 text-center mb-12">
+        {{ section.section }}
+      </h3>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <ng-container *ngFor="let item of section.items; let itemIndex = index">
+          <!-- Featured Capabilities Cards -->
+          <mat-card *ngIf="item.title" 
+            class="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary-400/50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+          >
+            <mat-card-header class="pb-4">
+              <div mat-card-avatar class="bg-gradient-to-br from-primary-400 to-primary-500 flex items-center justify-center">
+                <lucide-icon [img]="getIconForCategory(item.title)" size="24" class="text-white"></lucide-icon>
+              </div>
+              <mat-card-title class="text-white text-xl font-semibold">
+                {{ item.title }}
+              </mat-card-title>
+            </mat-card-header>
+            
+            <mat-card-content>
+              <ul class="text-gray-300 mb-4 space-y-2">
+                <li *ngFor="let desc of item.description" class="flex items-start">
+                  <span class="w-2 h-2 bg-primary-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  {{ desc }}
+                </li>
+              </ul>
+              
+              <div class="flex flex-wrap gap-2">
+                <mat-chip *ngFor="let tool of item.tools" 
+                  class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+                  {{ tool }}
+                </mat-chip>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          
+          <!-- Technical Strengths Cards -->
+          <mat-card *ngIf="item.name" 
+            class="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary-400/50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+          >
+            <mat-card-header class="pb-4">
+              <div mat-card-avatar class="bg-gradient-to-br from-primary-400 to-primary-500 flex items-center justify-center">
+                <lucide-icon [img]="getIconForCategory(item.name)" size="24" class="text-white"></lucide-icon>
+              </div>
+              <mat-card-title class="text-white text-xl font-semibold">
+                {{ item.name }}
+              </mat-card-title>
+            </mat-card-header>
+            
+            <mat-card-content>
+              <div class="flex flex-wrap gap-2">
+                <mat-chip *ngFor="let example of item.examples" 
+                  class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+                  {{ example }}
+                </mat-chip>
+              </div>
+            </mat-card-content>
+          </mat-card>
         </ng-container>
       </div>
     </div>

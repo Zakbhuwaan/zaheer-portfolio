@@ -1,24 +1,65 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { LucideAngularModule, Download, Mail, Github, ExternalLink } from 'lucide-angular';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
+  imports: [
+    CommonModule, 
+    MatButtonModule, 
+    MatChipsModule, 
+    MatIconModule,
+    LucideAngularModule
+  ],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
 export class HeroComponent implements OnInit {
-  fullText = 'AI Engineer & Fullstack Developer';
+  readonly Download = Download;
+  readonly Mail = Mail;
+  readonly Github = Github;
+  readonly ExternalLink = ExternalLink;
+
   displayedText = '';
-  typingSpeed = 80; // ms per character
+  private roles = [
+    'AI/ML Engineer',
+    'Full-Stack Developer', 
+    'Software Architect',
+    'Tech Innovator'
+  ];
+  private currentRoleIndex = 0;
+  private currentCharIndex = 0;
+  private isDeleting = false;
 
   ngOnInit() {
-    this.typeText();
+    this.typeWriter();
   }
 
-  typeText(i: number = 0) {
-    if (i < this.fullText.length) {
-      this.displayedText += this.fullText.charAt(i);
-      setTimeout(() => this.typeText(i + 1), this.typingSpeed);
+  private typeWriter() {
+    const currentRole = this.roles[this.currentRoleIndex];
+    
+    if (this.isDeleting) {
+      this.displayedText = currentRole.substring(0, this.currentCharIndex - 1);
+      this.currentCharIndex--;
+    } else {
+      this.displayedText = currentRole.substring(0, this.currentCharIndex + 1);
+      this.currentCharIndex++;
     }
+
+    let typeSpeed = this.isDeleting ? 50 : 100;
+
+    if (!this.isDeleting && this.currentCharIndex === currentRole.length) {
+      typeSpeed = 2000;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.currentCharIndex === 0) {
+      this.isDeleting = false;
+      this.currentRoleIndex = (this.currentRoleIndex + 1) % this.roles.length;
+    }
+
+    setTimeout(() => this.typeWriter(), typeSpeed);
   }
 }

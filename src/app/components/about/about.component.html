@@ -1,15 +1,92 @@
-<section id="about" class="relative pt-0 pb-24 flex justify-center overflow-hidden">
-  <div class="relative z-10 bg-white/2 backdrop-blur-lg rounded-2xl shadow-2xl p-10 pt-16 max-w-4xl w-full flex flex-col items-center gap-6 -mt-6">
-    <p class="text-lg leading-relaxed text-gray-300 text-center font-light">
-      <span class="inline-block align-middle bg-primary-400/20 text-primary-200 font-semibold px-4 py-1 rounded-full mr-2">AI Engineer</span>
-      <span class="inline-block align-middle bg-primary-400/20 text-primary-200 font-semibold px-4 py-1 rounded-full mr-2">Fullstack Developer</span>
-      skilled in building intelligent systems and scalable applications.<br>
-      Proficient in
-      <span class="inline-block align-middle bg-accent-400/20 text-accent-400 font-semibold px-4 py-1 rounded-full mx-1">Angular</span>,
-      <span class="inline-block align-middle bg-accent-400/20 text-accent-400 font-semibold px-4 py-1 rounded-full mx-1">.NET Core</span>,
-      and
-      <span class="inline-block align-middle bg-accent-400/20 text-accent-400 font-semibold px-4 py-1 rounded-full mx-1">LSTM-based AI models</span>,
-      delivering impactful solutions across domains.
-    </p>
+<section id="about" class="relative py-20 bg-transparent">
+  <div class="max-w-6xl mx-auto px-4 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        About Me
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-500 mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- About Content -->
+      <div class="space-y-6">
+        <h3 class="text-2xl md:text-3xl font-semibold text-white mb-6">
+          Passionate <span class="text-primary-400">AI Engineer</span> & 
+          <span class="text-primary-400">Full-Stack Developer</span>
+        </h3>
+        
+        <p class="text-gray-300 text-lg leading-relaxed">
+          I'm a dedicated software engineer with over 5 years of experience in building 
+          intelligent systems and scalable web applications. My expertise spans across 
+          artificial intelligence, machine learning, and modern web development technologies.
+        </p>
+        
+        <p class="text-gray-300 text-lg leading-relaxed">
+          I specialize in creating AI-driven solutions that solve real-world problems, 
+          from predictive analytics to computer vision applications. My full-stack 
+          development skills ensure seamless integration of AI capabilities into 
+          user-friendly interfaces.
+        </p>
+
+        <!-- Key Technologies -->
+        <div class="space-y-4">
+          <h4 class="text-xl font-semibold text-white">Core Technologies</h4>
+          <div class="flex flex-wrap gap-2">
+            <mat-chip class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+              Angular
+            </mat-chip>
+            <mat-chip class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+              .NET Core
+            </mat-chip>
+            <mat-chip class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+              Python
+            </mat-chip>
+            <mat-chip class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+              TensorFlow
+            </mat-chip>
+            <mat-chip class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+              Azure
+            </mat-chip>
+            <mat-chip class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+              SQL Server
+            </mat-chip>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlights Grid -->
+      <div class="grid grid-cols-2 gap-4">
+        <mat-card *ngFor="let highlight of highlights" 
+          class="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary-400/50 transition-all duration-300 transform hover:scale-105 p-6 text-center"
+        >
+          <div class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <lucide-icon [img]="highlight.icon" size="24" class="text-white"></lucide-icon>
+          </div>
+          <h5 class="text-white font-semibold mb-2">{{ highlight.title }}</h5>
+          <p class="text-gray-300 text-sm">{{ highlight.description }}</p>
+        </mat-card>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
+        <div class="text-3xl font-bold text-primary-400 mb-2">5+</div>
+        <div class="text-gray-300">Years Experience</div>
+      </div>
+      <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
+        <div class="text-3xl font-bold text-primary-400 mb-2">50+</div>
+        <div class="text-gray-300">Projects Completed</div>
+      </div>
+      <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
+        <div class="text-3xl font-bold text-primary-400 mb-2">15+</div>
+        <div class="text-gray-300">Technologies</div>
+      </div>
+      <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
+        <div class="text-3xl font-bold text-primary-400 mb-2">100%</div>
+        <div class="text-gray-300">Client Satisfaction</div>
+      </div>
+    </div>
   </div>
 </section>

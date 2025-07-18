@@ -1,19 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from '../../data/project.model';
-import projectsData from '../../data/projects.json';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
+import { LucideAngularModule, ExternalLink, Github, Eye, Star } from 'lucide-angular';
+import { Project } from '../../data/project.model';
+import projectsData from '../../data/projects.json';
+
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [
+    CommonModule, 
+    RouterModule, 
+    MatCardModule, 
+    MatButtonModule, 
+    MatChipsModule, 
+    MatIconModule,
+    MatBadgeModule,
+    LucideAngularModule
+  ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
 export class ProjectsComponent implements OnInit {
+  readonly ExternalLink = ExternalLink;
+  readonly Github = Github;
+  readonly Eye = Eye;
+  readonly Star = Star;
+
   projects: Project[] = [];
 
   ngOnInit() {
-      this.projects = ( projectsData as Project[]);
+    this.projects = (projectsData as Project[]);
+  }
+
+  getStatusColor(status: string): string {
+    switch (status.toLowerCase()) {
+      case 'completed':
+        return 'bg-green-500';
+      case 'in progress':
+        return 'bg-yellow-500';
+      case 'planning':
+        return 'bg-blue-500';
+      default:
+        return 'bg-gray-500';
+    }
   }
 }

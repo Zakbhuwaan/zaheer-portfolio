@@ -1,13 +1,43 @@
-<nav class="sticky top-0 z-50 bg-midnight-900/90 backdrop-blur shadow-md font-sans">
-  <div class="max-w-4xl mx-auto flex items-center justify-between px-4 py-3">
-    <div class="text-primary-400 font-bold text-xl tracking-tight">zaheerkhan.dev</div>
-    <ul class="flex gap-6 text-light-100 font-medium">
-      <li><a href="#hero" class="hover:text-primary-400 transition">Home</a></li>
-      <li><a href="#about" class="hover:text-primary-400 transition">About</a></li>
-      <li><a href="#skills" class="hover:text-primary-400 transition">Skills</a></li>
-      <li><a href="#projects" class="hover:text-primary-400 transition">Projects</a></li>
-      <li><a href="#timeline" class="hover:text-primary-400 transition">Timeline</a></li>
-      <li><a href="#contact" class="hover:text-primary-400 transition">Contact</a></li>
-    </ul>
+<mat-toolbar class="fixed top-0 z-50 bg-midnight-900/90 backdrop-blur shadow-lg border-b border-white/10">
+  <div class="max-w-6xl mx-auto w-full flex items-center justify-between px-4">
+    <!-- Logo -->
+    <div class="text-primary-400 font-bold text-xl tracking-tight">
+      zaheerkhan.dev
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-6">
+      <a 
+        *ngFor="let item of navItems" 
+        [href]="item.href"
+        mat-button
+        class="text-light-100 hover:text-primary-400 transition-colors duration-200"
+      >
+        <lucide-icon [img]="item.icon" size="16" class="mr-2"></lucide-icon>
+        {{ item.label }}
+      </a>
+    </nav>
+    
+    <!-- Mobile Menu Button -->
+    <button 
+      mat-icon-button 
+      [matMenuTriggerFor]="mobileMenu"
+      class="md:hidden text-light-100"
+    >
+      <lucide-icon [img]="Menu" size="20"></lucide-icon>
+    </button>
+    
+    <!-- Mobile Menu -->
+    <mat-menu #mobileMenu="matMenu" class="mt-2">
+      <a 
+        *ngFor="let item of navItems" 
+        [href]="item.href"
+        mat-menu-item
+        class="flex items-center"
+      >
+        <lucide-icon [img]="item.icon" size="16" class="mr-3"></lucide-icon>
+        {{ item.label }}
+      </a>
+    </mat-menu>
   </div>
-</nav>
+</mat-toolbar>

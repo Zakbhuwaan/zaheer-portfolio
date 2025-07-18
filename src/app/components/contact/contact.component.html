@@ -1,4 +1,146 @@
-<section id="contact" class="relative min-h-[70vh] flex flex-col items-center justify-center text-white px-4">
+<section id="contact" class="relative py-20 bg-transparent">
+  <div class="max-w-6xl mx-auto px-4 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Let's Work Together
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-500 mx-auto rounded-full"></div>
+      <p class="text-gray-300 mt-6 max-w-2xl mx-auto text-lg">
+        Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Contact Form -->
+      <mat-card class="bg-white/5 backdrop-blur-sm border border-white/10 p-8">
+        <mat-card-header class="pb-6">
+          <mat-card-title class="text-white text-2xl font-semibold">
+            Send a Message
+          </mat-card-title>
+          <mat-card-subtitle class="text-gray-300">
+            Fill out the form below and I'll get back to you within 24 hours.
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
+            <!-- Name Field -->
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label class="text-gray-300">Full Name</mat-label>
+              <input 
+                matInput 
+                formControlName="name" 
+                placeholder="Enter your full name"
+                class="text-white"
+              >
+              <mat-error *ngIf="contactForm.get('name')?.hasError('required')">
+                {{ getErrorMessage('name') }}
+              </mat-error>
+            </mat-form-field>
+
+            <!-- Email Field -->
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label class="text-gray-300">Email Address</mat-label>
+              <input 
+                matInput 
+                type="email"
+                formControlName="email" 
+                placeholder="Enter your email address"
+                class="text-white"
+              >
+              <mat-error *ngIf="contactForm.get('email')?.hasError('required')">
+                {{ getErrorMessage('email') }}
+              </mat-error>
+              <mat-error *ngIf="contactForm.get('email')?.hasError('email')">
+                {{ getErrorMessage('email') }}
+              </mat-error>
+            </mat-form-field>
+
+            <!-- Message Field -->
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label class="text-gray-300">Message</mat-label>
+              <textarea 
+                matInput 
+                formControlName="message" 
+                rows="6"
+                placeholder="Tell me about your project or idea..."
+                class="text-white"
+              ></textarea>
+              <mat-error *ngIf="contactForm.get('message')?.hasError('required')">
+                {{ getErrorMessage('message') }}
+              </mat-error>
+            </mat-form-field>
+
+            <!-- Submit Button -->
+            <button 
+              mat-raised-button 
+              type="submit"
+              [disabled]="contactForm.invalid"
+              class="w-full bg-gradient-to-r from-primary-400 to-primary-500 text-white font-semibold py-3 hover:shadow-lg transition-all duration-200 disabled:opacity-50"
+            >
+              <lucide-icon [img]="Send" size="18" class="mr-2"></lucide-icon>
+              Send Message
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Contact Information -->
+      <div class="space-y-8">
+        <!-- Contact Info Cards -->
+        <div class="space-y-4">
+          <h3 class="text-2xl font-semibold text-white mb-6">Contact Information</h3>
+          
+          <div *ngFor="let info of contactInfo" 
+            class="flex items-center p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-primary-400/50 transition-all duration-200"
+          >
+            <div class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full flex items-center justify-center mr-4">
+              <lucide-icon [img]="info.icon" size="20" class="text-white"></lucide-icon>
+            </div>
+            <div>
+              <div class="text-gray-300 text-sm">{{ info.label }}</div>
+              <a 
+                *ngIf="info.link; else noLink"
+                [href]="info.link" 
+                class="text-white font-medium hover:text-primary-400 transition-colors"
+              >
+                {{ info.value }}
+              </a>
+              <ng-template #noLink>
+                <div class="text-white font-medium">{{ info.value }}</div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div>
+          <h3 class="text-2xl font-semibold text-white mb-6">Follow Me</h3>
+          <div class="flex space-x-4">
+            <a 
+              *ngFor="let social of socialLinks"
+              [href]="social.url" 
+              target="_blank"
+              class="w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:border-primary-400/50 hover:bg-primary-400/10 transition-all duration-200"
+              [attr.aria-label]="social.label"
+            >
+              <lucide-icon [img]="social.icon" size="20" class="text-gray-300 hover:text-primary-400"></lucide-icon>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Response Time -->
+        <div class="p-6 bg-gradient-to-r from-primary-400/20 to-primary-500/20 backdrop-blur-sm border border-primary-400/30 rounded-lg">
+          <h4 class="text-white font-semibold mb-2">Quick Response</h4>
+          <p class="text-gray-300 text-sm">
+            I typically respond to messages within 24 hours. For urgent inquiries, feel free to reach out via phone.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>"contact" class="relative min-h-[70vh] flex flex-col items-center justify-center text-white px-4">
   <div class="flex flex-col items-center justify-center w-full">
     <h2 class="text-4xl md:text-6xl font-extrabold text-center mb-6">
       Looking to elevate your<br> digital presence?
@@ -10,16 +152,3 @@
       Let's get in touch &rarr;
     </a>
   </div>
-  <!-- Floating social buttons -->
-  <div class="fixed bottom-8 right-8 flex gap-3 z-50">
-    <a href="https://github.com/zaheerkhan" target="_blank" class="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition p-3 flex items-center justify-center" aria-label="GitHub">
-      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.48 2.87 8.28 6.84 9.63.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .26.18.57.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
-    </a>
-    <a href="https://twitter.com/" target="_blank" class="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition p-3 flex items-center justify-center" aria-label="Twitter">
-      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.59-2.47.7a4.3 4.3 0 0 0 1.88-2.37 8.59 8.59 0 0 1-2.72 1.04A4.28 4.28 0 0 0 16.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.11.99C7.69 9.13 4.07 7.38 1.64 4.7c-.37.64-.58 1.38-.58 2.17 0 1.5.76 2.82 1.92 3.6-.7-.02-1.36-.21-1.94-.53v.05c0 2.1 1.5 3.85 3.5 4.25-.36.1-.74.16-1.13.16-.28 0-.54-.03-.8-.08.54 1.7 2.1 2.94 3.95 2.97A8.6 8.6 0 0 1 2 19.54c-.63 0-1.25-.04-1.86-.11A12.13 12.13 0 0 0 7.29 21.5c7.55 0 11.68-6.26 11.68-11.68 0-.18-.01-.36-.02-.54A8.18 8.18 0 0 0 22.46 6z"/></svg>
-    </a>
-    <a href="https://linkedin.com/" target="_blank" class="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition p-3 flex items-center justify-center" aria-label="LinkedIn">
-      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.38v4.59h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
-    </a>
-  </div>
-</section>

@@ -1,4 +1,5 @@
 @import 'animate.css';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -113,4 +114,41 @@ html, body {
   .section-header-wrapper {
     margin-bottom: 2rem;
   }
+}
+
+/* Angular Material Dark Theme Customizations */
+.mat-mdc-card {
+  --mdc-elevated-card-container-color: rgba(255, 255, 255, 0.05) !important;
+  --mdc-outlined-card-outline-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.mat-mdc-form-field {
+  --mdc-outlined-text-field-label-text-color: rgba(255, 255, 255, 0.7) !important;
+  --mdc-outlined-text-field-input-text-color: rgba(255, 255, 255, 0.9) !important;
+  --mdc-outlined-text-field-outline-color: rgba(255, 255, 255, 0.3) !important;
+  --mdc-outlined-text-field-hover-outline-color: rgba(196, 132, 252, 0.7) !important;
+  --mdc-outlined-text-field-focus-outline-color: rgba(162, 89, 247, 1) !important;
+}
+
+.mat-mdc-button.mat-primary {
+  --mdc-text-button-label-text-color: rgba(196, 132, 252, 1) !important;
+}
+
+.mat-mdc-raised-button.mat-primary {
+  --mdc-filled-button-container-color: rgba(162, 89, 247, 1) !important;
+  --mdc-filled-button-label-text-color: white !important;
+}
+
+.mat-mdc-chip.mat-mdc-standard-chip {
+  --mdc-chip-container-shape: 16px !important;
+}
+
+.mat-mdc-snack-bar-container.success-snackbar {
+  --mdc-snackbar-container-color: rgba(34, 197, 94, 0.9) !important;
+  --mdc-snackbar-supporting-text-color: white !important;
+}
+
+.mat-mdc-snack-bar-container.error-snackbar {
+  --mdc-snackbar-container-color: rgba(239, 68, 68, 0.9) !important;
+  --mdc-snackbar-supporting-text-color: white !important;
 }
