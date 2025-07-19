@@ -2,55 +2,56 @@
   <div class="max-w-6xl mx-auto px-4 relative z-10">
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+      <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent mb-6">
         Featured Projects
       </h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-500 mx-auto rounded-full"></div>
-      <p class="text-gray-300 mt-6 max-w-2xl mx-auto text-lg">
-        A showcase of my recent work in AI/ML, full-stack development, and innovative solutions
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full mb-6"></div>
+      <p class="text-gray-300 mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
+        A showcase of my recent work in AI/ML, full-stack development, and innovative solutions that drive business value
       </p>
     </div>
 
     <!-- Projects Grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <mat-card *ngFor="let project of projects" 
-        class="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary-400/50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl overflow-hidden"
+      <div *ngFor="let project of projects" 
+        class="bg-white/5 backdrop-blur-lg border border-white/10 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl overflow-hidden rounded-xl group"
       >
         <!-- Project Image/Icon -->
-        <div class="h-48 bg-gradient-to-br from-primary-400 to-primary-500 flex items-center justify-center relative overflow-hidden">
-          <div class="absolute inset-0 bg-black/20"></div>
-          <lucide-icon [img]="Github" size="48" class="text-white relative z-10"></lucide-icon>
+        <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
+          <lucide-icon [img]="Github" size="48" class="text-white relative z-10 group-hover:scale-110 transition-transform duration-300"></lucide-icon>
           
           <!-- Status Badge -->
           <div class="absolute top-4 right-4 z-20">
-            <span [class]="'px-3 py-1 rounded-full text-xs font-medium text-white ' + getStatusColor(project.status)">
+            <span [class]="'px-3 py-1 rounded-full text-xs font-medium text-white backdrop-blur-sm ' + getStatusColor(project.status)">
               {{ project.status }}
             </span>
           </div>
         </div>
 
-        <mat-card-content class="p-6">
+        <div class="p-6">
           <!-- Project Title & Description -->
           <h3 class="text-xl font-semibold text-white mb-3">{{ project.title }}</h3>
           <p class="text-gray-300 mb-4 line-clamp-3">{{ project.description }}</p>
 
           <!-- Tech Stack -->
           <div class="flex flex-wrap gap-2 mb-6">
-            <mat-chip *ngFor="let tech of project.techStack" 
-              class="bg-primary-400/20 text-primary-400 border border-primary-400/30 text-xs">
+            <span *ngFor="let tech of project.techStack" 
+              class="bg-blue-500/20 text-blue-300 border border-blue-400/30 text-xs px-3 py-1 rounded-full backdrop-blur-sm">
               {{ tech }}
-            </mat-chip>
+            </span>
           </div>
-        </mat-card-content>
+        </div>
 
-        <mat-card-actions class="p-6 pt-0 flex items-center justify-between">
+        <div class="p-6 pt-0 flex items-center justify-between">
           <!-- View Details -->
           <a 
             [routerLink]="['/projects', project.category, project.id]"
-            mat-stroked-button
-            class="text-primary-400 border-primary-400 hover:bg-primary-400/10"
+            hlmBtn
+            variant="outline"
+            class="inline-flex items-center gap-2 px-4 py-2 text-blue-300 border-blue-400/50 hover:bg-blue-400/10 hover:border-blue-400 transition-all duration-300 rounded-lg"
           >
-            <lucide-icon [img]="Eye" size="16" class="mr-2"></lucide-icon>
+            <lucide-icon [img]="Eye" size="16"></lucide-icon>
             Details
           </a>
 
@@ -59,32 +60,30 @@
             <a 
               [href]="project.url" 
               target="_blank"
-              mat-icon-button
-              class="text-gray-300 hover:text-primary-400"
-              matTooltip="View on GitHub"
+              class="p-2 text-gray-300 hover:text-blue-400 hover:bg-blue-400/10 rounded-lg transition-all duration-200"
+              title="View on GitHub"
             >
               <lucide-icon [img]="Github" size="20"></lucide-icon>
             </a>
             <button 
-              mat-icon-button
-              class="text-gray-300 hover:text-primary-400"
-              matTooltip="Star Project"
+              class="p-2 text-gray-300 hover:text-purple-400 hover:bg-purple-400/10 rounded-lg transition-all duration-200"
+              title="Star Project"
             >
               <lucide-icon [img]="Star" size="20"></lucide-icon>
             </button>
           </div>
-        </mat-card-actions>
-      </mat-card>
+        </div>
+      </div>
     </div>
 
     <!-- View More Projects Button -->
     <div class="flex justify-center mt-12">
       <a 
         routerLink="/more-projects"
-        mat-raised-button
-        class="bg-gradient-to-r from-primary-400 to-primary-500 text-white font-semibold px-8 py-3 hover:shadow-lg transition-all duration-200"
+        hlmBtn
+        class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
       >
-        <lucide-icon [img]="ExternalLink" size="18" class="mr-2"></lucide-icon>
+        <lucide-icon [img]="ExternalLink" size="18"></lucide-icon>
         View All Projects
       </a>
     </div>

@@ -33,39 +33,39 @@
         <div class="space-y-4">
           <h4 class="text-xl font-semibold text-white">Core Technologies</h4>
           <div class="flex flex-wrap gap-2">
-            <mat-chip class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+            <span class="bg-primary-400/20 text-primary-400 border border-primary-400/30 px-3 py-1 rounded-full text-sm">
               Angular
-            </mat-chip>
-            <mat-chip class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+            </span>
+            <span class="bg-primary-400/20 text-primary-400 border border-primary-400/30 px-3 py-1 rounded-full text-sm">
               .NET Core
-            </mat-chip>
-            <mat-chip class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+            </span>
+            <span class="bg-primary-400/20 text-primary-400 border border-primary-400/30 px-3 py-1 rounded-full text-sm">
               Python
-            </mat-chip>
-            <mat-chip class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+            </span>
+            <span class="bg-primary-400/20 text-primary-400 border border-primary-400/30 px-3 py-1 rounded-full text-sm">
               TensorFlow
-            </mat-chip>
-            <mat-chip class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+            </span>
+            <span class="bg-primary-400/20 text-primary-400 border border-primary-400/30 px-3 py-1 rounded-full text-sm">
               Azure
-            </mat-chip>
-            <mat-chip class="bg-primary-400/20 text-primary-400 border border-primary-400/30">
+            </span>
+            <span class="bg-primary-400/20 text-primary-400 border border-primary-400/30 px-3 py-1 rounded-full text-sm">
               SQL Server
-            </mat-chip>
+            </span>
           </div>
         </div>
       </div>
 
       <!-- Highlights Grid -->
       <div class="grid grid-cols-2 gap-4">
-        <mat-card *ngFor="let highlight of highlights" 
-          class="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary-400/50 transition-all duration-300 transform hover:scale-105 p-6 text-center"
+        <div *ngFor="let highlight of highlights" 
+          class="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary-400/50 transition-all duration-300 transform hover:scale-105 p-6 text-center rounded-lg"
         >
           <div class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
             <lucide-icon [img]="highlight.icon" size="24" class="text-white"></lucide-icon>
           </div>
           <h5 class="text-white font-semibold mb-2">{{ highlight.title }}</h5>
           <p class="text-gray-300 text-sm">{{ highlight.description }}</p>
-        </mat-card>
+        </div>
       </div>
     </div>
 

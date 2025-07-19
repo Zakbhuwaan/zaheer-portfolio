@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
+import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { LucideAngularModule, Menu, Home, User, Code, Briefcase, Clock, Mail } from 'lucide-angular';
 
 @Component({
@@ -11,10 +8,7 @@ import { LucideAngularModule, Menu, Home, User, Code, Briefcase, Clock, Mail } f
   standalone: true,
   imports: [
     CommonModule, 
-    MatToolbarModule, 
-    MatButtonModule, 
-    MatMenuModule, 
-    MatIconModule,
+    HlmButtonDirective,
     LucideAngularModule
   ],
   templateUrl: './navigation.component.html',

@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatIconModule } from '@angular/material/icon';
-import { MatBadgeModule } from '@angular/material/badge';
+import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { LucideAngularModule, ExternalLink, Github, Eye, Star } from 'lucide-angular';
 import { Project } from '../../data/project.model';
 import projectsData from '../../data/projects.json';
@@ -16,11 +12,7 @@ import projectsData from '../../data/projects.json';
   imports: [
     CommonModule, 
     RouterModule, 
-    MatCardModule, 
-    MatButtonModule, 
-    MatChipsModule, 
-    MatIconModule,
-    MatBadgeModule,
+    HlmButtonDirective,
     LucideAngularModule
   ],
   templateUrl: './projects.component.html',

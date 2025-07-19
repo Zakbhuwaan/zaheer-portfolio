@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatIconModule } from '@angular/material/icon';
-import { LucideAngularModule, Download, Mail, Github, ExternalLink } from 'lucide-angular';
+import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
+import { LucideAngularModule, Download, Mail, Github, ExternalLink, User } from 'lucide-angular';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
   imports: [
-    CommonModule, 
-    MatButtonModule, 
-    MatChipsModule, 
-    MatIconModule,
+    CommonModule,
+    HlmButtonDirective,
     LucideAngularModule
   ],
   templateUrl: './hero.component.html',
@@ -23,6 +19,7 @@ export class HeroComponent implements OnInit {
   readonly Mail = Mail;
   readonly Github = Github;
   readonly ExternalLink = ExternalLink;
+  readonly User = User;
 
   displayedText = '';
   private roles = [

@@ -3,7 +3,7 @@
     <!-- Professional Avatar -->
     <div class="relative mb-8">
       <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-primary-400 to-primary-500 shadow-2xl border-4 border-white/20 flex items-center justify-center">
-        <lucide-icon [img]="Github" size="48" class="text-white"></lucide-icon>
+        <lucide-icon [img]="User" size="48" class="text-white"></lucide-icon>
       </div>
       <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white/20"></div>
     </div>
@@ -26,35 +26,46 @@
       Specialized in AI/ML solutions and full-stack development with a focus on scalable, user-centric design.
     </p>
 
-    <!-- Action Buttons -->
+    <!-- Action Buttons using Spartan UI -->
     <div class="flex flex-col sm:flex-row gap-4 mb-8 justify-center items-center">
       <a 
         href="assets/ZaheerKhan_Resume.pdf" 
         target="_blank"
-        mat-raised-button
-        color="primary"
-        class="min-w-[160px] text-black bg-white hover:bg-gray-100 font-semibold transition-all duration-200 transform hover:scale-105"
+        hlmBtn
+        class="min-w-[160px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 bg-white text-black hover:bg-gray-100"
       >
-        <lucide-icon [img]="Download" size="18" class="mr-2"></lucide-icon>
+        <lucide-icon [img]="Download" size="18"></lucide-icon>
         View Resume
       </a>
       
       <a 
-        href="#contact"
-        mat-stroked-button
-        class="min-w-[160px] text-white border-white/30 hover:bg-white/10 font-semibold transition-all duration-200"
+        href="mailto:zaheerkhan.khalid@proton.me?subject=Project Inquiry&body=Hi Zaheer,%0D%0A%0D%0AI would like to discuss a project opportunity with you.%0D%0A%0D%0AProject Details:%0D%0A- %0D%0A%0D%0ABest regards,"
+        hlmBtn
+        variant="outline"
+        class="min-w-[160px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 text-white border-white/30 hover:bg-white/10"
       >
-        <lucide-icon [img]="Mail" size="18" class="mr-2"></lucide-icon>
+        <lucide-icon [img]="Mail" size="18"></lucide-icon>
+        Email Me
+      </a>
+      
+      <a 
+        href="#contact"
+        hlmBtn
+        variant="secondary"
+        class="min-w-[160px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-gray-800 hover:bg-gray-700 text-white"
+      >
+        <lucide-icon [img]="ExternalLink" size="18"></lucide-icon>
         Contact Me
       </a>
       
       <a 
         href="https://github.com/zaheerkhan" 
         target="_blank"
-        mat-raised-button
-        class="min-w-[160px] bg-gray-800 hover:bg-gray-700 text-white font-semibold transition-all duration-200"
+        hlmBtn
+        variant="secondary"
+        class="min-w-[160px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-gray-800 hover:bg-gray-700 text-white"
       >
-        <lucide-icon [img]="Github" size="18" class="mr-2"></lucide-icon>
+        <lucide-icon [img]="Github" size="18"></lucide-icon>
         GitHub
       </a>
     </div>

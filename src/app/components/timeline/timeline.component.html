@@ -1,40 +1,98 @@
 <section id="timeline" class="relative py-20 bg-transparent">
-  <div class="max-w-5xl mx-auto relative z-10">
-    <div class="section-header-wrapper">
-      <h2 class="section-header">Timeline</h2>
-      <div class="section-header-glow"></div>
+  <div class="max-w-6xl mx-auto px-4 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        My <span class="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text">Journey</span>
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full"></div>
+      <p class="text-gray-300 mt-6 max-w-2xl mx-auto text-lg">
+        A timeline of my professional growth, achievements, and the experiences that shaped my expertise
+      </p>
     </div>
+
+    <!-- Timeline Container -->
     <div class="relative">
-      <!-- Vertical line -->
-      <div class="absolute left-1/2 top-0 w-1 timeline-vertical-line h-full transform -translate-x-1/2 z-0"></div>
-      <ng-container *ngFor="let item of timeline; let i = index">
-        <div class="mb-16 flex flex-col md:flex-row items-center relative z-10">
-          <!-- Left side -->
-          <div class="md:w-1/2 md:pr-8 flex justify-end md:order-1 order-2">
-            <div *ngIf="i % 2 === 0" class="timeline-card w-80">
-              <div class="text-primary-400 font-bold text-lg mb-1">{{ item.year }}</div>
-              <div class="text-xl font-semibold mb-1">{{ item.role }}</div>
-              <div class="text-primary-400 font-medium mb-2">{{ item.company }}</div>
-              <div class="text-light-100">{{ item.description }}</div>
+      <!-- Vertical Timeline Line -->
+      <div class="absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-blue-400 via-purple-500 to-blue-600 transform -translate-x-1/2 rounded-full shadow-lg shadow-blue-500/30"></div>
+      
+      <!-- Timeline Items -->
+      <div class="space-y-12">
+        <div *ngFor="let item of timeline; let i = index" class="relative flex items-center">
+          <!-- Timeline Node -->
+          <div class="absolute left-1/2 transform -translate-x-1/2 z-20">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center border-4 border-white/20 shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform duration-300">
+              <lucide-angular [img]="item.icon" class="w-8 h-8 text-white"></lucide-angular>
             </div>
-            <div *ngIf="i % 2 !== 0" class="w-80 invisible"></div>
           </div>
-          <!-- Timeline dot -->
-          <div class="w-8 h-8 flex items-center justify-center md:order-2 order-1 z-20">
-            <span class="timeline-dot"></span>
-          </div>
-          <!-- Right side -->
-          <div class="md:w-1/2 md:pl-8 flex justify-start md:order-3 order-3">
-            <div *ngIf="i % 2 !== 0" class="timeline-card w-80">
-              <div class="text-primary-400 font-bold text-lg mb-1">{{ item.year }}</div>
-              <div class="text-xl font-semibold mb-1">{{ item.role }}</div>
-              <div class="text-primary-400 font-medium mb-2">{{ item.company }}</div>
-              <div class="text-light-100">{{ item.description }}</div>
+
+          <!-- Content Card -->
+          <div class="w-full">
+            <div [class]="'timeline-item-' + (i % 2 === 0 ? 'left' : 'right')">
+              <div class="group bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:border-blue-400/30 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 max-w-lg">
+                <!-- Header -->
+                <div class="flex items-start justify-between mb-4">
+                  <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-2">
+                      <span class="px-3 py-1 text-sm font-semibold rounded-full" 
+                            [class]="item.type === 'education' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'">
+                        {{ item.type === 'education' ? 'Education' : 'Work Experience' }}
+                      </span>
+                      <div class="flex items-center gap-1 text-gray-400 text-sm">
+                        <lucide-angular [img]="Calendar" class="w-4 h-4"></lucide-angular>
+                        <span>{{ item.year }}</span>
+                      </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1 group-hover:text-blue-300 transition-colors duration-300">
+                      {{ item.role }}
+                    </h3>
+                    <div class="flex items-center gap-2 text-blue-400 font-medium mb-2">
+                      <span>{{ item.company }}</span>
+                    </div>
+                    <div class="flex items-center gap-1 text-gray-400 text-sm mb-4">
+                      <lucide-angular [img]="MapPin" class="w-4 h-4"></lucide-angular>
+                      <span>{{ item.location }}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                  {{ item.description }}
+                </p>
+
+                <!-- Achievements -->
+                <div class="mb-6">
+                  <h4 class="text-white font-semibold mb-3 flex items-center gap-2">
+                    <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    Key Achievements
+                  </h4>
+                  <ul class="space-y-2">
+                    <li *ngFor="let achievement of item.achievements" class="flex items-start gap-3 text-gray-300">
+                      <div class="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span class="text-sm">{{ achievement }}</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Technologies -->
+                <div>
+                  <h4 class="text-white font-semibold mb-3 flex items-center gap-2">
+                    <div class="w-2 h-2 bg-purple-400 rounded-full"></div>
+                    Technologies & Skills
+                  </h4>
+                  <div class="flex flex-wrap gap-2">
+                    <span *ngFor="let tech of item.technologies" 
+                          class="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 text-xs font-medium rounded-full border border-blue-400/30">
+                      {{ tech }}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div *ngIf="i % 2 === 0" class="w-80 invisible"></div>
           </div>
         </div>
-      </ng-container>
+      </div>
     </div>
   </div>
 </section>

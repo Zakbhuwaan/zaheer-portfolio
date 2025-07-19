@@ -2,153 +2,123 @@
   <div class="max-w-6xl mx-auto px-4 relative z-10">
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-        Let's Work Together
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Let's Work <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Together</span>
       </h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-500 mx-auto rounded-full"></div>
-      <p class="text-gray-300 mt-6 max-w-2xl mx-auto text-lg">
-        Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Ready to transform your business with cutting-edge technology? Let's discuss your project and bring your vision to life.
       </p>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-12 items-start">
-      <!-- Contact Form -->
-      <mat-card class="bg-white/5 backdrop-blur-sm border border-white/10 p-8">
-        <mat-card-header class="pb-6">
-          <mat-card-title class="text-white text-2xl font-semibold">
-            Send a Message
-          </mat-card-title>
-          <mat-card-subtitle class="text-gray-300">
-            Fill out the form below and I'll get back to you within 24 hours.
-          </mat-card-subtitle>
-        </mat-card-header>
-
-        <mat-card-content>
-          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
-            <!-- Name Field -->
-            <mat-form-field appearance="outline" class="w-full">
-              <mat-label class="text-gray-300">Full Name</mat-label>
-              <input 
-                matInput 
-                formControlName="name" 
-                placeholder="Enter your full name"
-                class="text-white"
-              >
-              <mat-error *ngIf="contactForm.get('name')?.hasError('required')">
-                {{ getErrorMessage('name') }}
-              </mat-error>
-            </mat-form-field>
-
-            <!-- Email Field -->
-            <mat-form-field appearance="outline" class="w-full">
-              <mat-label class="text-gray-300">Email Address</mat-label>
-              <input 
-                matInput 
-                type="email"
-                formControlName="email" 
-                placeholder="Enter your email address"
-                class="text-white"
-              >
-              <mat-error *ngIf="contactForm.get('email')?.hasError('required')">
-                {{ getErrorMessage('email') }}
-              </mat-error>
-              <mat-error *ngIf="contactForm.get('email')?.hasError('email')">
-                {{ getErrorMessage('email') }}
-              </mat-error>
-            </mat-form-field>
-
-            <!-- Message Field -->
-            <mat-form-field appearance="outline" class="w-full">
-              <mat-label class="text-gray-300">Message</mat-label>
-              <textarea 
-                matInput 
-                formControlName="message" 
-                rows="6"
-                placeholder="Tell me about your project or idea..."
-                class="text-white"
-              ></textarea>
-              <mat-error *ngIf="contactForm.get('message')?.hasError('required')">
-                {{ getErrorMessage('message') }}
-              </mat-error>
-            </mat-form-field>
-
-            <!-- Submit Button -->
-            <button 
-              mat-raised-button 
-              type="submit"
-              [disabled]="contactForm.invalid"
-              class="w-full bg-gradient-to-r from-primary-400 to-primary-500 text-white font-semibold py-3 hover:shadow-lg transition-all duration-200 disabled:opacity-50"
-            >
-              <lucide-icon [img]="Send" size="18" class="mr-2"></lucide-icon>
-              Send Message
-            </button>
-          </form>
-        </mat-card-content>
-      </mat-card>
-
-      <!-- Contact Information -->
+    <div class="grid lg:grid-cols-1 gap-12 max-w-4xl mx-auto">
+      <!-- Professional Contact Options -->
       <div class="space-y-8">
-        <!-- Contact Info Cards -->
-        <div class="space-y-4">
-          <h3 class="text-2xl font-semibold text-white mb-6">Contact Information</h3>
-          
-          <div *ngFor="let info of contactInfo" 
-            class="flex items-center p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-primary-400/50 transition-all duration-200"
-          >
-            <div class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full flex items-center justify-center mr-4">
-              <lucide-icon [img]="info.icon" size="20" class="text-white"></lucide-icon>
-            </div>
-            <div>
-              <div class="text-gray-300 text-sm">{{ info.label }}</div>
-              <a 
-                *ngIf="info.link; else noLink"
-                [href]="info.link" 
-                class="text-white font-medium hover:text-primary-400 transition-colors"
-              >
-                {{ info.value }}
-              </a>
-              <ng-template #noLink>
-                <div class="text-white font-medium">{{ info.value }}</div>
-              </ng-template>
-            </div>
-          </div>
-        </div>
-
-        <!-- Social Links -->
-        <div>
-          <h3 class="text-2xl font-semibold text-white mb-6">Follow Me</h3>
-          <div class="flex space-x-4">
-            <a 
-              *ngFor="let social of socialLinks"
-              [href]="social.url" 
-              target="_blank"
-              class="w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:border-primary-400/50 hover:bg-primary-400/10 transition-all duration-200"
-              [attr.aria-label]="social.label"
-            >
-              <lucide-icon [img]="social.icon" size="20" class="text-gray-300 hover:text-primary-400"></lucide-icon>
-            </a>
-          </div>
-        </div>
-
-        <!-- Quick Response Time -->
-        <div class="p-6 bg-gradient-to-r from-primary-400/20 to-primary-500/20 backdrop-blur-sm border border-primary-400/30 rounded-lg">
-          <h4 class="text-white font-semibold mb-2">Quick Response</h4>
-          <p class="text-gray-300 text-sm">
-            I typically respond to messages within 24 hours. For urgent inquiries, feel free to reach out via phone.
+        <!-- Primary Contact Methods -->
+        <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+          <h3 class="text-2xl font-bold text-white mb-6 text-center">Let's Connect Professionally</h3>
+          <p class="text-gray-300 text-center mb-8">
+            I prefer connecting through professional platforms where we can build a meaningful professional relationship first.
           </p>
+          
+          <div class="grid md:grid-cols-3 gap-6">
+            <!-- LinkedIn Contact -->
+            <div class="bg-white/5 rounded-xl p-6 border border-white/10 text-center hover:border-blue-400/30 transition-all duration-300 group">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <lucide-angular [img]="Linkedin" class="w-8 h-8 text-white"></lucide-angular>
+              </div>
+              <h4 class="text-white font-semibold mb-2">LinkedIn</h4>
+              <p class="text-gray-300 text-sm mb-4">Best for professional inquiries and project discussions</p>
+              <a
+                href="https://linkedin.com/in/yourusername"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-300"
+              >
+                <lucide-angular [img]="ExternalLink" class="w-4 h-4"></lucide-angular>
+                Connect on LinkedIn
+              </a>
+            </div>
+
+            <!-- Professional Email -->
+            <div class="bg-white/5 rounded-xl p-6 border border-white/10 text-center hover:border-green-400/30 transition-all duration-300 group">
+              <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <lucide-angular [img]="Mail" class="w-8 h-8 text-white"></lucide-angular>
+              </div>
+              <h4 class="text-white font-semibold mb-2">Professional Email</h4>
+              <p class="text-gray-300 text-sm mb-4">For serious business inquiries and project discussions</p>
+              <a
+                href="mailto:zaheerkhan.khalid@proton.me?subject=Project Inquiry&body=Hi Zaheer,%0D%0A%0D%0AI would like to discuss a project opportunity with you.%0D%0A%0D%0AProject Details:%0D%0A- %0D%0A%0D%0ABest regards,"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-300"
+              >
+                <lucide-angular [img]="Mail" class="w-4 h-4"></lucide-angular>
+                Send Email
+              </a>
+            </div>
+
+            <!-- GitHub Contact -->
+            <div class="bg-white/5 rounded-xl p-6 border border-white/10 text-center hover:border-purple-400/30 transition-all duration-300 group">
+              <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <lucide-angular [img]="Github" class="w-8 h-8 text-white"></lucide-angular>
+              </div>
+              <h4 class="text-white font-semibold mb-2">GitHub</h4>
+              <p class="text-gray-300 text-sm mb-4">Explore my work and collaborate on open source projects</p>
+              <a
+                href="https://github.com/yourusername"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-300"
+              >
+                <lucide-angular [img]="ExternalLink" class="w-4 h-4"></lucide-angular>
+                View GitHub Profile
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+          <h3 class="text-2xl font-bold text-white mb-6 text-center">Additional Information</h3>
+          
+          <div class="grid md:grid-cols-2 gap-6 text-center">
+            <!-- Location -->
+            <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+              <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <lucide-angular [img]="MapPin" class="w-6 h-6 text-white"></lucide-angular>
+              </div>
+              <h4 class="text-white font-semibold mb-2">Remote Work</h4>
+              <p class="text-gray-300 text-sm">Available for remote projects worldwide & on-site in select locations</p>
+            </div>
+
+            <!-- Response Time -->
+            <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+              <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <lucide-angular [img]="Clock" class="w-6 h-6 text-white"></lucide-angular>
+              </div>
+              <h4 class="text-white font-semibold mb-2">Quick Response</h4>
+              <p class="text-gray-300 text-sm">I typically respond to LinkedIn messages within 24-48 hours</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Guidelines -->
+        <div class="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-400/20">
+          <h3 class="text-xl font-bold text-white mb-4 text-center">Ready to Start a Project?</h3>
+          <div class="space-y-4 text-gray-300">
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+              <p><strong class="text-white">Connect With Me</strong> - Reach out using any platform above with a brief note about your project</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+              <p><strong class="text-white">Share Your Vision</strong> - Tell me about your project goals and requirements</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+              <p><strong class="text-white">Let's Discuss</strong> - We'll schedule a call to explore how I can help bring your ideas to life</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</section>"contact" class="relative min-h-[70vh] flex flex-col items-center justify-center text-white px-4">
-  <div class="flex flex-col items-center justify-center w-full">
-    <h2 class="text-4xl md:text-6xl font-extrabold text-center mb-6">
-      Looking to elevate your<br> digital presence?
-    </h2>
-    <p class="text-lg md:text-2xl text-center mb-8 opacity-80 max-w-2xl">
-      Let’s connect and bring your ideas to life.
-    </p>
-    <a href="mailto:zaheer@example.com" class="mt-2 px-8 py-4 rounded-lg border border-primary-400 text-lg font-semibold bg-transparent hover:bg-primary-400 hover:text-midnight-900 transition text-white shadow focus:outline-none">
-      Let's get in touch &rarr;
-    </a>
-  </div>
+</section>

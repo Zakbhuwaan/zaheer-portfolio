@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatIconModule } from '@angular/material/icon';
 import { LucideAngularModule, Award, Target, Lightbulb, Rocket } from 'lucide-angular';
 
 @Component({
@@ -10,9 +7,6 @@ import { LucideAngularModule, Award, Target, Lightbulb, Rocket } from 'lucide-an
   standalone: true,
   imports: [
     CommonModule,
-    MatCardModule,
-    MatChipsModule,
-    MatIconModule,
     LucideAngularModule
   ],
   templateUrl: './about.component.html',
