@@ -5,87 +5,80 @@
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
         About Me
       </h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-primary-400 to-primary-500 mx-auto rounded-full"></div>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full"></div>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
       <!-- About Content -->
       <div class="space-y-6">
         <h3 class="text-2xl md:text-3xl font-semibold text-white mb-6">
-          Passionate <span class="text-primary-400">AI Engineer</span> & 
-          <span class="text-primary-400">Full-Stack Developer</span>
+          Passionate <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">AI Engineer</span> & 
+          <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Full-Stack Developer</span>
         </h3>
         
         <p class="text-gray-300 text-lg leading-relaxed">
-          I'm a dedicated software engineer with over 5 years of experience in building 
-          intelligent systems and scalable web applications. My expertise spans across 
-          artificial intelligence, machine learning, and modern web development technologies.
+          I'm a passionate software engineer dedicated to building intelligent solutions that drive business value. 
+          I focus on creating AI-powered applications and modern web experiences that solve real-world problems.
         </p>
         
         <p class="text-gray-300 text-lg leading-relaxed">
-          I specialize in creating AI-driven solutions that solve real-world problems, 
-          from predictive analytics to computer vision applications. My full-stack 
-          development skills ensure seamless integration of AI capabilities into 
-          user-friendly interfaces.
+          Continuously learning and exploring cutting-edge technologies, I specialize in integrating AI capabilities 
+          with full-stack development to deliver innovative solutions that exceed client expectations.
         </p>
 
-        <!-- Key Technologies -->
-        <div class="space-y-4">
-          <h4 class="text-xl font-semibold text-white">Core Technologies</h4>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-primary-400/20 text-primary-400 border border-primary-400/30 px-3 py-1 rounded-full text-sm">
-              Angular
-            </span>
-            <span class="bg-primary-400/20 text-primary-400 border border-primary-400/30 px-3 py-1 rounded-full text-sm">
-              .NET Core
-            </span>
-            <span class="bg-primary-400/20 text-primary-400 border border-primary-400/30 px-3 py-1 rounded-full text-sm">
-              Python
-            </span>
-            <span class="bg-primary-400/20 text-primary-400 border border-primary-400/30 px-3 py-1 rounded-full text-sm">
-              TensorFlow
-            </span>
-            <span class="bg-primary-400/20 text-primary-400 border border-primary-400/30 px-3 py-1 rounded-full text-sm">
-              Azure
-            </span>
-            <span class="bg-primary-400/20 text-primary-400 border border-primary-400/30 px-3 py-1 rounded-full text-sm">
-              SQL Server
-            </span>
-          </div>
+        <!-- Call to Action Button - Centered -->
+        <div class="mt-8 flex justify-center">
+          <button 
+            (click)="copyEmailToClipboard()"
+            class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            <lucide-angular [img]="Zap" size="20" class="transition-transform duration-300 group-hover:scale-110"></lucide-angular>
+            {{ emailButtonText }}
+          </button>
         </div>
       </div>
 
-      <!-- Highlights Grid -->
-      <div class="grid grid-cols-2 gap-4">
-        <div *ngFor="let highlight of highlights" 
-          class="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary-400/50 transition-all duration-300 transform hover:scale-105 p-6 text-center rounded-lg"
-        >
-          <div class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
-            <lucide-icon [img]="highlight.icon" size="24" class="text-white"></lucide-icon>
+      <!-- Tech Stack Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div *ngFor="let stack of techStacks" 
+          class="bg-white/5 backdrop-blur-lg border border-white/10 hover:border-{{stack.color}}-400/50 transition-all duration-300 transform hover:scale-105 p-6 rounded-xl group">
+          
+          <!-- Icon and Title -->
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-{{stack.color}}-400 to-{{stack.color}}-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <lucide-angular [img]="stack.icon" size="24" class="text-white"></lucide-angular>
+            </div>
+            <h5 class="text-white font-bold text-lg">{{ stack.title }}</h5>
           </div>
-          <h5 class="text-white font-semibold mb-2">{{ highlight.title }}</h5>
-          <p class="text-gray-300 text-sm">{{ highlight.description }}</p>
+          
+          <!-- Technologies -->
+          <div class="flex flex-wrap gap-2">
+            <div *ngFor="let tech of stack.technologies" 
+              class="bg-{{stack.color}}-400/20 text-{{stack.color}}-400 border border-{{stack.color}}-400/30 px-3 py-1 rounded-full text-sm backdrop-blur-sm">
+              {{ tech }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Notable Achievements -->
     <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-      <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-blue-400/50 transition-all duration-300">
-        <div class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-2">99%</div>
-        <div class="text-gray-300">Bug-Free Deployments</div>
+      <div class="text-center p-6 bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl hover:border-blue-400/50 transition-all duration-300 hover:scale-105">
+        <div class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-2">5+</div>
+        <div class="text-gray-300 text-sm">Active Projects</div>
       </div>
-      <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-green-400/50 transition-all duration-300">
-        <div class="text-3xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent mb-2">&lt;2hr</div>
-        <div class="text-gray-300">Response Time</div>
+      <div class="text-center p-6 bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl hover:border-green-400/50 transition-all duration-300 hover:scale-105">
+        <div class="text-3xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent mb-2">&lt;48hr</div>
+        <div class="text-gray-300 text-sm">Delivery Promise</div>
       </div>
-      <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-purple-400/50 transition-all duration-300">
+      <div class="text-center p-6 bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl hover:border-purple-400/50 transition-all duration-300 hover:scale-105">
         <div class="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-2">AI</div>
-        <div class="text-gray-300">Early Adopter</div>
+        <div class="text-gray-300 text-sm">Early Adopter</div>
       </div>
-      <div class="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-orange-400/50 transition-all duration-300">
-        <div class="text-3xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent mb-2">0</div>
-        <div class="text-gray-300">Failed Projects</div>
+      <div class="text-center p-6 bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl hover:border-orange-400/50 transition-all duration-300 hover:scale-105">
+        <div class="text-3xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent mb-2">3</div>
+        <div class="text-gray-300 text-sm">AI Solutions Built</div>
       </div>
     </div>
   </div>

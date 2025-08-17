@@ -21,14 +21,14 @@
     
     <!-- Contact CTA Button -->
     <div class="hidden md:flex items-center gap-3">
-      <a 
-        href="mailto:zaheerkhan.khalid@proton.me?subject=Project Inquiry&body=Hi Zaheer,%0D%0A%0D%0AI would like to discuss a project opportunity with you.%0D%0A%0D%0AProject Details:%0D%0A- %0D%0A%0D%0ABest regards,"
+      <button 
+        (click)="copyEmailToClipboard()"
         hlmBtn
         class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105"
       >
         <lucide-icon [img]="Mail" size="16"></lucide-icon>
-        Hire Me
-      </a>
+        {{ emailButtonText }}
+      </button>
     </div>
     
     <!-- Mobile Menu Button -->

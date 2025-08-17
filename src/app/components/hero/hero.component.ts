@@ -36,6 +36,23 @@ export class HeroComponent implements OnInit {
     this.typeWriter();
   }
 
+  async copyEmailToClipboard() {
+    const email = 'zaheerkhan.khalid@proton.me';
+    try {
+      await navigator.clipboard.writeText(email);
+      alert('Email copied to clipboard!');
+    } catch (err) {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = email;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      alert('Email copied to clipboard!');
+    }
+  }
+
   private typeWriter() {
     const currentRole = this.roles[this.currentRoleIndex];
     
